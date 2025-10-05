@@ -452,7 +452,7 @@ footer {
     flex-shrink: 0;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center top; /* Center horizontally, focus on top area for face */
+    object-position: center center; /* Center both horizontally and vertically */
     opacity: 0;
     transform: scale(0);
     transform-origin: center center;

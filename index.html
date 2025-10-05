@@ -14,7 +14,13 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://jjluo.com/">
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jjluo.com/">
@@ -51,7 +57,7 @@
         "url": "https://jjluo.com",
         "image": "https://jjluo.com/profile.jpg",
         "sameAs": [
-            "https://www.linkedin.com/in/junjie-luo/",
+            "https://www.linkedin.com/in/junjie-luo-b1327a209/",
             "https://github.com/jluo41"
         ],
         "jobTitle": "PhD Candidate",
@@ -98,16 +104,12 @@
             overflow-x: hidden;
         }
         
-        #particles-js {
+        #vanta-background {
             position: absolute;
             width: 100%;
             height: 100vh;
-            background-color: var(--particles-bg);
-            background-image: url("");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 50% 50%;
-            transition: background-color 0.3s ease;
+            top: 0;
+            left: 0;
             z-index: 1;
         }
         
@@ -231,24 +233,24 @@
     <header class="main-nav visible" id="mainNav">
         <nav>
             <ul>
-                <li><a href="https://jjluo.com/#about">About</a></li>
-                <li><a href="https://jjluo.com/#papers">Papers</a></li>
-                <li><a href="https://jjluo.com/#honors">Honors</a></li>
-                <li><a href="https://jjluo.com/#talks">Talks</a></li>
-                <li><a href="https://jjluo.com/#projects">Industry</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#papers">Papers</a></li>
+                <li><a href="#honors">Honors</a></li>
+                <li><a href="#talks">Talks</a></li>
+                <li><a href="#projects">Industry</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section with Particles -->
+    <!-- Hero Section with Vanta Background -->
     <section id="hero-section">
-        <!-- Particles.js container -->
-        <div id="particles-js"><canvas class="particles-js-canvas-el" width="1451" height="1240" style="width: 100%; height: 100%;"></canvas></div>
-        
+        <!-- Vanta.js background container -->
+        <div id="vanta-background"></div>
+
         <div class="hero-content">
             <h1 id="name">Junjie Luo</h1>
             <p id="title">Building Human-Centered AI for Healthcare</p>
-            <a href="https://jjluo.com/#details-section" class="more-link" data-handler-attached="true">More</a>
+            <a href="#details-section" class="more-link" data-handler-attached="true">More</a>
         </div>
     </section>
 
@@ -264,9 +266,10 @@
                         <p id="about-text" class="animate-in" style="">I am a Ph.D. Candidate in Health Science Informatics at the School of Medicine, Johns Hopkins University. My research focuses on designing and developing healthcare AI using real-world data, with special emphasis on human factors and behaviors to enhance health and wellness.<br>My research program centers on <em>large foundation models for healthcare</em>, particularly continuous glucose monitoring (CGM) for diabetes management:<br><ul><li class="animate-in" style="">Research &amp; Development: I develop novel AI systems tailored to real-world health problems, including large sensor models, agentic AI for patient messaging, and multi-modal sensor data modeling.</li></ul><ul><li class="animate-in" style="">Implementation &amp; Evaluation: I deploy these models in production environments and evaluate them for both performance and human values such as fairness and robustness.</li></ul>My research methodology distinctively <em>combines the full AI lifecycle from development to deployment</em>, with strong industry collaborations (WellDoc, DrFirst, MedStar Health). My passion is conducting research that delivers tangible benefits to both patients and healthcare systems.</p>
                     </div>
                     <div id="profile-links" class="animate-in" style="">
-                        <a href="https://jjluo.com/cv-junjieluo.pdf" id="cv-link" target="_blank">CV</a>
+                        <a href="./cv-junjieluo.pdf" id="cv-link" target="_blank">CV</a>
                         <a href="mailto:jluo41@jhu.edu" id="email-link" target="_blank">Email</a>
-                        <a href="https://www.linkedin.com/in/junjie-luo/" id="linkedin-link" target="_blank">LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?user=csSHTp4AAAAJ&hl=en" id="scholar-link" target="_blank">Google Scholar</a>
+                        <a href="https://www.linkedin.com/in/junjie-luo-b1327a209/" id="linkedin-link" target="_blank">LinkedIn</a>
                         <a href="https://github.com/jluo41" id="github-link" target="_blank">GitHub</a>
                     </div>
                 </div>
@@ -493,37 +496,28 @@
         </footer>
     </section>
 
-    <!-- Particles.js library -->
-    <script src="./assets/particles.js"></script>
-    <script src="./assets/app.js"></script>
+    <!-- Vanta.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
 
-    <!-- Initialize particles immediately -->
+    <!-- Initialize Vanta.js CLOUDS background -->
     <script>
-        // Initialize particles right after app.js loads
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.initializeParticles) {
-                initializeParticles();
-            } else {
-                // Fallback - initialize with default config if function not available
-                particlesJS('particles-js', {
-                    "particles": {
-                        "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
-                        "color": {"value": "#ffffff"},
-                        "shape": {"type": "circle", "stroke": {"width": 0, "color": "#000000"}},
-                        "opacity": {"value": 0.5, "random": false},
-                        "size": {"value": 5, "random": true},
-                        "line_linked": {"enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1},
-                        "move": {"enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out"}
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {"onhover": {"enable": true, "mode": "repulse"}, "onclick": {"enable": true, "mode": "push"}, "resize": true},
-                        "modes": {"repulse": {"distance": 200}, "push": {"particles_nb": 4}}
-                    },
-                    "retina_detect": true
-                });
-                console.log('Particles initialized with fallback configuration');
-            }
+            VANTA.CLOUDS({
+                el: "#vanta-background",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                skyColor: 0x68b8d7,
+                cloudColor: 0xadc1de,
+                cloudShadowColor: 0x183550,
+                sunColor: 0xff9919,
+                sunGlareColor: 0xff6633,
+                sunlightColor: 0xff9933,
+                speed: 1.0
+            });
         });
     </script>
 
