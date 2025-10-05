@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://jjluo.com/ -->
+<html lang="en" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Junjie Luo | PhD Candidate | Healthcare AI &amp; Foundation Models Researcher</title>
+    <meta name="title" content="Junjie Luo | PhD Candidate | Healthcare AI &amp; Foundation Models Researcher">
+    <meta name="description" content="Junjie Luo is a PhD Candidate in Health Science Informatics at Johns Hopkins School of Medicine, specializing in large foundation models for healthcare, continuous glucose monitoring, and human-centered AI.">
+    <meta name="keywords" content="Junjie Luo, PhD Candidate, Healthcare AI, Foundation Models, Machine Learning, Johns Hopkins University, Biomedical Informatics, Diabetes Management, CGM">
+    <meta name="author" content="Junjie Luo">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jjluo.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jjluo.com/">
+    <meta property="og:title" content="Junjie Luo | PhD Candidate | Healthcare AI &amp; Foundation Models Researcher">
+    <meta property="og:description" content="PhD Candidate in Health Science Informatics at Johns Hopkins School of Medicine, specializing in large foundation models for healthcare, continuous glucose monitoring, and human-centered AI.">
+    <meta property="og:image" content="https://jjluo.com/profile.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jjluo.com/">
+    <meta property="twitter:title" content="Junjie Luo | PhD Candidate | Healthcare AI &amp; Foundation Models Researcher">
+    <meta property="twitter:description" content="PhD Candidate in Health Science Informatics at Johns Hopkins School of Medicine, specializing in large foundation models for healthcare, continuous glucose monitoring, and human-centered AI.">
+    <meta property="twitter:image" content="https://jjluo.com/profile.jpg">
+    <meta property="twitter:site" content="@JunjieLuo">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="./assets/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-66ZS1SM4PC');
+    </script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Junjie Luo",
+        "givenName": "Junjie",
+        "familyName": "Luo",
+        "url": "https://jjluo.com",
+        "image": "https://jjluo.com/profile.jpg",
+        "sameAs": [
+            "https://www.linkedin.com/in/junjie-luo/",
+            "https://github.com/jluo41"
+        ],
+        "jobTitle": "PhD Candidate",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Johns Hopkins University",
+            "url": "https://www.jhu.edu"
+        },
+        "affiliation": {
+            "@type": "Organization",
+            "name": "School of Medicine",
+            "url": "https://www.hopkinsmedicine.org"
+        },
+        "alumniOf": [
+            {
+                "@type": "Organization",
+                "name": "University of Maryland, College Park"
+            },
+            {
+                "@type": "Organization",
+                "name": "The Chinese University of Hong Kong, Shenzhen"
+            }
+        ],
+        "knowsAbout": [
+            "Artificial Intelligence",
+            "Healthcare AI",
+            "Foundation Models",
+            "Natural Language Processing",
+            "Continuous Glucose Monitoring",
+            "Biomedical Informatics",
+            "Machine Learning",
+            "Multi-Modal Sensor Data"
+        ],
+        "description": "PhD Candidate in Health Science Informatics at Johns Hopkins School of Medicine, specializing in large foundation models for healthcare, continuous glucose monitoring, and human-centered AI.",
+        "email": "jluo41@jhu.edu"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="./assets/styles.css">
+    <style>
+        /* Single page specific styles */
+        body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--particles-bg);
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+        
+        #hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Navigation - initially hidden, shows after scrolling past hero */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            height: var(--header-height);
+        }
+        
+        .main-nav.visible {
+            transform: translateY(0);
+        }
+        
+        /* Details section styling */
+        #details-section {
+            position: relative;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            z-index: 3;
+            scroll-margin-top: -10rem; /* Negative margin to position content higher when scrolled to */
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* More button enhancement */
+        .more-link {
+            display: inline-block;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+        
+        /* Add a subtle arrow animation */
+        .more-link::after {
+            content: ' ↓';
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(5px);
+            }
+            60% {
+                transform: translateY(3px);
+            }
+        }
+        
+        /* Ensure about section fits in viewport */
+        #about {
+            min-height: calc(100vh - 4rem); /* Full viewport minus some padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 2rem;
+        }
+        
+        /* Responsive adjustments for different viewport sizes */
+        @media (max-height: 800px) {
+            #about {
+                min-height: auto;
+                padding-top: 1rem;
+            }
+            
+            #profile-container {
+                gap: 1rem;
+            }
+            
+            #profile-image {
+                width: 220px;
+                height: 220px;
+            }
+        }
+        
+        @media (min-width: 1000px) {
+            /* Wider screens - make about text utilize more width */
+            #profile-info {
+                max-width: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
+    
+    <!-- Back to top button -->
+    <button class="back-to-top visible" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- Navigation (initially hidden) -->
+    <header class="main-nav visible" id="mainNav">
+        <nav>
+            <ul>
+                <li><a href="https://jjluo.com/#about">About</a></li>
+                <li><a href="https://jjluo.com/#papers">Papers</a></li>
+                <li><a href="https://jjluo.com/#honors">Honors</a></li>
+                <li><a href="https://jjluo.com/#talks">Talks</a></li>
+                <li><a href="https://jjluo.com/#projects">Industry</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Particles -->
+    <section id="hero-section">
+        <!-- Particles.js container -->
+        <div id="particles-js"><canvas class="particles-js-canvas-el" width="1451" height="1240" style="width: 100%; height: 100%;"></canvas></div>
+        
+        <div class="hero-content">
+            <h1 id="name">Junjie Luo</h1>
+            <p id="title">Building Human-Centered AI for Healthcare</p>
+            <a href="https://jjluo.com/#details-section" class="more-link" data-handler-attached="true">More</a>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section id="details-section">
+        <main>
+            <section id="about" style="" class="animate-in">
+                <div id="profile-container">
+                    <img id="profile-image" src="./profile.jpg" alt="Junjie Luo&#39;s profile picture" class="animate-in" style="">
+                    <div id="profile-info">
+                        <h3 id="profile-name" class="animate-in" style="">Junjie Luo</h3>
+                        <p id="profile-title" class="animate-in" style="">Ph.D. candidate @JHU, School of Medicine <span class="job-market-separator">|</span> <span class="job-market-text in-view">On the Job Market</span></p>
+                        <p id="about-text" class="animate-in" style="">I am a Ph.D. Candidate in Health Science Informatics at the School of Medicine, Johns Hopkins University. My research focuses on designing and developing healthcare AI using real-world data, with special emphasis on human factors and behaviors to enhance health and wellness.<br>My research program centers on <em>large foundation models for healthcare</em>, particularly continuous glucose monitoring (CGM) for diabetes management:<br><ul><li class="animate-in" style="">Research &amp; Development: I develop novel AI systems tailored to real-world health problems, including large sensor models, agentic AI for patient messaging, and multi-modal sensor data modeling.</li></ul><ul><li class="animate-in" style="">Implementation &amp; Evaluation: I deploy these models in production environments and evaluate them for both performance and human values such as fairness and robustness.</li></ul>My research methodology distinctively <em>combines the full AI lifecycle from development to deployment</em>, with strong industry collaborations (WellDoc, DrFirst, MedStar Health). My passion is conducting research that delivers tangible benefits to both patients and healthcare systems.</p>
+                    </div>
+                    <div id="profile-links" class="animate-in" style="">
+                        <a href="https://jjluo.com/cv-junjieluo.pdf" id="cv-link" target="_blank">CV</a>
+                        <a href="mailto:jluo41@jhu.edu" id="email-link" target="_blank">Email</a>
+                        <a href="https://www.linkedin.com/in/junjie-luo/" id="linkedin-link" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/jluo41" id="github-link" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div id="education-section" class="animate-in" style="">
+                    <h4>Education</h4>
+                    <ul id="education-list"><li class="animate-in" style=""><span class="year">2022-2026</span><span class="details"><strong>PhD</strong> in Health Science Informatics<br>Johns Hopkins School of Medicine</span></li><li class="animate-in" style=""><span class="year">2020-2022</span><span class="details"><strong>PhD</strong> in Information Systems (transferred)<br>University of Maryland, College Park</span></li><li class="animate-in" style=""><span class="year">2018-2020</span><span class="details"><strong>M.S.</strong> in Data Science<br>The Chinese University of Hong Kong, Shenzhen</span></li><li class="animate-in" style=""><span class="year">2014-2018</span><span class="details"><strong>B.B.A.</strong> in Applied Economics<br>The Chinese University of Hong Kong, Shenzhen</span></li></ul>
+                </div>
+                <div id="research-section" class="animate-in" style="">
+                    <h4>Research Interests</h4>
+                    <ul id="research-list"><li class="animate-in" style=""><span class="category">Topics</span><span class="content">Healthcare AI, Foundation Models for Sensor Data, Continuous Glucose Monitoring, Agentic AI, Human-Centered AI, Health Disparities</span></li><li class="animate-in" style=""><span class="category">Methodologies</span><span class="content">Foundation Models, Natural Language Processing, Multi-Modal Sensor Modeling, Causal Inference, MLOps</span></li></ul>
+                </div>
+            </section>
+
+            <section id="papers" style="" class="simple-fade-in animate-in">
+                <h2 class="simple-fade-in animate-in" style="">Papers</h2>
+                <ul id="papers-list">
+                    <li class="simple-fade-in animate-in" style=""><strong>Working Papers</strong></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>FairGlucose: A Benchmark for Fair and Robust Forecasting of Continuous Glucose Monitoring Time-Series Data</strong> <em>Under Review at AAAI 2026</em><br><em><strong>Junjie Luo</strong>, Xuzhe Zhi, Rui Han, Abhimanyu Kumbara, Anand K. Iyer, Mansur E. Shomali, Ritu Agarwal, Guodong (Gordon) Gao</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Group-Sensitive Offline Contextual Bandit</strong> <em>Under Review at AISTATS 2026</em><br><em>Yihong Guo, <strong>Junjie Luo</strong>, Guodong (Gordon) Gao, Ritu Agarwal, Anqi Liu</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Physician Personality and Behavior: How LLM-Revealed Traits Shape Opioid Overprescriptions</strong> <em>Working Paper</em><br><em><strong>Junjie Luo</strong>, Ritu Agarwal, Guodong (Gordon) Gao</em><br><img src="./assets/award.svg" class="award-icon" alt="Award icon"> Hopkins Business of Health Initiative (HBHI) Grant, $25,000</li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Mapping Patient-Perceived Physician Traits from Nationwide Online Reviews with LLMs</strong> <em>Working Paper</em><br><em><strong>Junjie Luo</strong>, Rui Han, Arshana Welivita, Zeleikun Di, Jingfu Wu, Xuzhe Zhi, Ritu Agarwal, Guodong (Gordon) Gao</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Risk-Based Prediabetes Onset Subtypes Using EHR Data: a Machine Learning Approach</strong> <em>Working Paper</em><br><em><strong>Junjie Luo</strong>, Di Hu, Rui Han, Diyang Lyu, Ritu Agarwal, Jehan El-Bayoumi, Guodong (Gordon) Gao, Nawar Shara</em></li>
+
+                    <li class="simple-fade-in animate-in" style=""><strong>Publications</strong></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>PAME-AI: Patient Messaging Creation and Optimization using Agentic AI</strong> <em>NeurIPS 2025 Workshop on GenAI for Health</em><br><em><strong>Junjie Luo</strong>, Yihong Guo, Anqi Liu, Ritu Agarwal, Guodong (Gordon) Gao</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>A large sensor foundation model pretrained on continuous glucose monitor data for diabetes management</strong> <em>npj Health Systems, 2(1):35 (2025)</em><br><em><strong>Junjie Luo</strong>, Abhimanyu Kumbara, Mansur Shomali, Rui Han, Anand Iyer, Grazia Aleppo, Ritu Agarwal, Guodong (Gordon) Gao</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Impact of Food on A Transformer Based Glucose Prediction Model to Predict Glucose Trajectories at Different Time Horizons</strong> <em>Machine Learning for Healthcare (2025)</em><br><em>Mansur E. Shomali, <strong>Junjie Luo</strong>, Abhimanyu Kumbara, Anand K. Iyer, Guodong (Gordon) Gao</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>CGM-GPT: A Transformer Based Glucose Prediction Model to Predict Glucose Trajectories at Different Time Horizons</strong> <em>Machine Learning for Healthcare (2024)</em><br><em>Mansur Shomali, <strong>Junjie Luo</strong>, Abhimanyu Kumbara, Anand Iyer, Guodong (Gordon) Gao</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Recency in Online Physician Ratings</strong> <em>JAMA Internal Medicine, 182(8):881-883 (2022)</em><br><em>Weiguang Wang, <strong>Junjie Luo</strong>, Michelle Dugas, Guodong (Gordon) Gao, Ritu Agarwal, Rachel Werner</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Socioeconomic privilege and political ideology are associated with racial disparity in COVID-19 vaccination</strong> <em>PNAS 118, no. 33 (2021)</em><br><em>Ritu Agarwal, Michelle Dugas, Jui Ramaprasad, <strong>Junjie Luo</strong>, Gujie Li, and Guodong (Gordon) Gao</em></li>
+                    <li class="simple-fade-in animate-in" style="">• <strong>Field Embedding: A Unified Grain Based Framework for Word Representation</strong> <em>NAACL, 1754-1762 (2021)</em><br><em><strong>Junjie Luo</strong>, Xi Chen, Jichao Sun, Yuejia Xiang, Ningyu Zhang and Xiang Wan</em></li>
+                </ul>
+            </section>
+
+            <section id="honors" style="" class="simple-fade-in animate-in">
+                <h2 class="simple-fade-in animate-in" style="">Honors and Awards</h2>
+                <ul id="honors-list">
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2020</span>
+                        <span class="details">
+                            <strong>R.H.Smith School Graduate Assistant Scholarship</strong>
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2020</span>
+                        <span class="details">
+                            <strong>Academic Performance Scholarship</strong>
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2018</span>
+                        <span class="details">
+                            <strong>Admission Scholarship for Masters Program</strong>
+                            <br>The Chinese University of Hong Kong, Shenzhen
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2015-18</span>
+                        <span class="details">
+                            <strong>Dean's List Honor</strong>
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2016-17</span>
+                        <span class="details">
+                            <strong>Academic Performance Scholarship</strong>
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2016-17</span>
+                        <span class="details">
+                            <strong>Undergraduate Research Award</strong>
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2014</span>
+                        <span class="details">
+                            <strong>Admission Scholarship for Undergraduate Program</strong>
+                            <br>The Chinese University of Hong Kong, Shenzhen
+                        </span>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="talks" style="" class="simple-fade-in animate-in">
+                <h2 style="" class="simple-fade-in animate-in">Talks and Teaching</h2>
+                <ul id="talks-list">
+                    <li class="simple-fade-in animate-in" style=""><div class="teaching-category">CONFERENCE PRESENTATIONS</div></li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2024.9</span>
+                        <span class="details">
+                            <em>Mansur Shomali, <strong>Junjie Luo</strong>, Abhimanyu Kumbara, Anand Iyer, Guodong (Gordon) Gao.</em> <strong>Evaluating a state-of-the-art generative pre-trained transformer model to predict continuous glucose monitoring values at different time intervals.</strong><br>
+                            DIABETOLOGIA'2024
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2024.5</span>
+                        <span class="details">
+                            <em><strong>Junjie Luo</strong>, Abhimanyu Kumbara, Anand Lyer, Mansur Shomali and Guodong (Gordon) Gao.</em> <strong>Using an Automated, Real-time Data Enabled Feature Engineering Process to Predict Future Weight Outcomes.</strong><br>
+                            Conference on Health IT and Analytics'2024
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2023.7</span>
+                        <span class="details">
+                            <em><strong>Junjie Luo</strong>, Gordon Gao, Ritu Agarwal.</em> <strong>Assessing Dataset Quality to AI Bias and Healthcare Disparity: A Study on EHR-Based Prediabetes to Diabetes Risk Prediction Models.</strong><br>
+                            INFORMS Healthcare'2023
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2023.5</span>
+                        <span class="details">
+                            <em><strong>Junjie Luo</strong>, Aishwarya Shukla, Jie Mein Goh, Guodong (Gordon) Gao, Ritu Agarawl.</em> <strong>Relationships Between Patient Satisfaction and Physician Overprescription: Evidence from Online Reviews and CMS Claim Data.</strong><br>
+                            Production and Operations Management Society'2023
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2022.11</span>
+                        <span class="details">
+                            <em><strong>Junjie Luo</strong>, Casey Kindall, Sara-Laure Faraji, Guodong (Gordon) Gao, Ritu Agarawl, Sally Simpson.</em> <strong>Foretelling the Physician's Future: Healthcare Fraud Prediction with Behavioral Big Data.</strong><br>
+                            American Society of Criminology Annual Meeting'2022
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2022.6</span>
+                        <span class="details">
+                            <em><strong>Junjie Luo</strong>, Guodong (Gordon) Gao, Ritu Agarwal, and Sally Simpson.</em> <strong>"Minority Report" Comes True: Using Behavioral Big Data to Predict Physician Fraud.</strong><br>
+                            Academy Health'2022
+                        </span>
+                    </li>
+                    <li class="simple-fade-in animate-in" style="">
+                        <span class="year">2021.6</span>
+                        <span class="details">
+                            <em><strong>Junjie Luo</strong>, Xi Chen, Jichao Sun, Yuejia Xiang, Ningyu Zhang and Xiang Wan.</em> <strong>Field Embedding: A Unified Grain Based Framework for Word Representation.</strong><br>
+                            North American Association for Computational Linguistics'2021
+                        </span>
+                    </li>
+
+                    <li class="simple-fade-in animate-in" style=""><div class="teaching-category">TEACHING</div></li>
+                    <li class="simple-fade-in animate-in" style=""><div class="teaching-course">
+                        <div class="course-terms"><span class="term-year">2025</span> Spring</div>
+                        <div class="course-details">
+                            <strong>AI Essentials for Business</strong>, Johns Hopkins University<br><span class="course-note">Role: Lecturer</span>
+                        </div>
+                    </div></li>
+                    <li class="simple-fade-in animate-in" style=""><div class="teaching-course">
+                        <div class="course-terms"><span class="term-year">2024</span> Fall</div>
+                        <div class="course-details">
+                            <strong>Clinical Data Analysis with Python</strong>, Johns Hopkins University<br><span class="course-note">Role: Teaching Assistant</span>
+                        </div>
+                    </div></li>
+                    <li class="simple-fade-in animate-in" style=""><div class="teaching-course">
+                        <div class="course-terms"><span class="term-year">2024</span> Fall</div>
+                        <div class="course-details">
+                            <strong>AI Essentials for Business</strong>, Johns Hopkins University<br><span class="course-note">Role: AI Tech Lead</span>
+                        </div>
+                    </div></li>
+                    <li class="simple-fade-in animate-in" style=""><div class="teaching-course">
+                        <div class="course-terms"><span class="term-year">2024</span> Spring</div>
+                        <div class="course-details">
+                            <strong>Big Data Machine Learning</strong>, Johns Hopkins University<br><span class="course-note">Role: AI Tech Lead</span>
+                        </div>
+                    </div></li>
+                    <li class="simple-fade-in animate-in" style=""><div class="teaching-course">
+                        <div class="course-terms"><span class="term-year">2021</span> Summer</div>
+                        <div class="course-details">
+                            <strong>AI Leadership in Healthcare Exec Ed program</strong>, University of Maryland<br><span class="course-note">Role: Head of AI Specialists</span>
+                        </div>
+                    </div></li>
+                </ul>
+            </section>
+
+            <section id="projects" style="" class="animate-in">
+                <h2 class="animate-in" style="">Industry Collaboration & Experience</h2>
+                <div id="collaboration-section">
+                    <h3>Industry Collaboration</h3>
+                    <ul id="collaboration-list">
+                        <li class="animate-in" style="">I have been collaborating with several industry partners to develop and deploy healthcare AI solutions for real-world clinical and business problems.</li>
+                        <li class="animate-in" style="">• <strong><a href="https://www.welldoc.com/" target="_blank">WellDoc Inc.</a></strong> (Digital Health - Diabetes Management)</li>
+                        <li class="animate-in" style="">• <strong><a href="https://www.drfirst.com/" target="_blank">DrFirst Inc.</a></strong> (Healthcare Technology - Medication Adherence)</li>
+                        <li class="animate-in" style="">• <strong><a href="https://www.medstarhealth.org/" target="_blank">MedStar Health</a></strong> (Healthcare System - EHR Analytics)</li>
+                        <li class="animate-in" style="">• <strong><a href="https://www.inovalon.com/" target="_blank">Inovalon Inc.</a></strong> (Healthcare Data Analytics)</li>
+                        <li class="animate-in" style="">• <strong><a href="https://childrensnational.org/" target="_blank">Children's National Hospital</a></strong> (Pediatric Healthcare)</li>
+                    </ul>
+                </div>
+                <div id="experience-section">
+                    <h3>Professional Experience</h3>
+                    <ul id="experience-list">
+                        <li class="animate-in" style="">
+                            <span class="year">2020</span>
+                            <span class="details">
+                                <strong>Algorithm Engineer</strong> at Jarvis AI Lab, Healthcare Group, Tencent Ltd<br>
+                                Shenzhen, China
+                            </span>
+                        </li>
+                        <li class="animate-in" style="">
+                            <span class="year">2017-2020</span>
+                            <span class="details">
+                                <strong>Research Assistant</strong> at Shenzhen Research Institute of Big Data<br>
+                                Shenzhen, China
+                            </span>
+                        </li>
+                        <li class="animate-in" style="">
+                            <span class="year">2017</span>
+                            <span class="details">
+                                <strong>Data Mining Engineer</strong> at Ping An of China, Ping An Technology Co. Ltd<br>
+                                Shenzhen, China
+                            </span>
+                        </li>
+                        <li class="animate-in" style="">
+                            <span class="year">2016-2017</span>
+                            <span class="details">
+                                <strong>Research Assistant</strong> at School of Management and Economics, CUHK, Shenzhen<br>
+                                Shenzhen, China
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p id="footer-text">© 2025 Junjie Luo. All rights reserved.</p>
+        </footer>
+    </section>
+
+    <!-- Particles.js library -->
+    <script src="./assets/particles.js"></script>
+    <script src="./assets/app.js"></script>
+
+    <!-- Initialize particles immediately -->
+    <script>
+        // Initialize particles right after app.js loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.initializeParticles) {
+                initializeParticles();
+            } else {
+                // Fallback - initialize with default config if function not available
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
+                        "color": {"value": "#ffffff"},
+                        "shape": {"type": "circle", "stroke": {"width": 0, "color": "#000000"}},
+                        "opacity": {"value": 0.5, "random": false},
+                        "size": {"value": 5, "random": true},
+                        "line_linked": {"enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1},
+                        "move": {"enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out"}
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {"onhover": {"enable": true, "mode": "repulse"}, "onclick": {"enable": true, "mode": "push"}, "resize": true},
+                        "modes": {"repulse": {"distance": 200}, "push": {"particles_nb": 4}}
+                    },
+                    "retina_detect": true
+                });
+                console.log('Particles initialized with fallback configuration');
+            }
+        });
+    </script>
+
+    <script src="./assets/script.js"></script>
+
+
+    <div class="wechat-qr-overlay" id="techmemory-overlay"></div>
+    <div class="wechat-qr-popover" id="techmemory-popover">
+      <div class="wechat-qr-content">
+        <span class="wechat-qr-close" id="techmemory-popover-close">×</span>
+        <img src="./assets/techmemory_wechat_QR.jpg" alt="TechMemory WeChat QR Code">
+        <p>Scan it with WeChat to gain access</p>
+      </div>
+    </div>
+  </body></html>

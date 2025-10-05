@@ -1,0 +1,1349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* CSS Variables for theme colors */
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --text-light: #cccccc;
+    --text-muted: #888888;
+    --hover-bg: #f8f8f8;
+    --header-bg: rgba(0, 0, 0, 0.8);
+    --border-color: #ffffff;
+    --particles-color: #ffffff;
+    --particles-line-color: #ffffff;
+    --particles-bg: #000000;
+    --header-height: 80px; /* Define header height for scroll offset */
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --hover-bg: #f8f8f8;
+    --header-bg: rgba(255, 255, 255, 0.9);
+    --border-color: #333333;
+    --particles-color: #333333;
+    --particles-line-color: #333333;
+    --particles-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height); /* Account for sticky header */
+}
+
+/* WeChat QR Code Popover Styles */
+.wechat-qr-popover {
+    position: fixed;
+    display: none;
+    z-index: 10000;
+    animation: popoverFadeIn 0.3s ease;
+}
+
+.wechat-qr-popover.active {
+    display: block;
+}
+
+.wechat-qr-content {
+    position: relative;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: popoverSlide 0.3s ease;
+}
+
+.wechat-qr-content img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+}
+
+.wechat-qr-content p {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 14px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.wechat-qr-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.wechat-qr-close:hover {
+    color: var(--text-color);
+}
+
+/* Overlay for clicking outside to close */
+.wechat-qr-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 9999;
+}
+
+.wechat-qr-overlay.active {
+    display: block;
+}
+
+/* Mobile responsive for QR popover */
+@media (max-width: 768px) {
+    .wechat-qr-content img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .wechat-qr-content p {
+        font-size: 12px;
+    }
+
+    .wechat-qr-content {
+        padding: 10px;
+    }
+}
+
+/* TechMemory link style */
+.techmemory-link {
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.techmemory-link:hover {
+    opacity: 0.8;
+}
+
+/* Animations for popover */
+@keyframes popoverFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popoverSlide {
+    from {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    height: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1001;
+    background: var(--header-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Single page layout styles */
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+#hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.more-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 2px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.more-link:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+header {
+    background-color: var(--header-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    height: var(--header-height); /* Set explicit height */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 1rem 0;
+    height: 100%;
+    align-items: center; /* Center navigation items vertically */
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--text-light);
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Reset animations - initial hidden state */
+#details-section section {
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+    opacity: 0;
+    transform: translateY(50px) rotateX(15deg);
+    will-change: transform, opacity;
+    scroll-margin-top: calc(var(--header-height) + 2rem); /* Extra space for better visibility */
+}
+
+/* Animation classes that will be added by JavaScript */
+#details-section section.animate-in {
+    animation: flipIn 1s ease forwards;
+}
+
+#details-section section.animate-in:nth-child(1) { animation-delay: 0.1s; }
+#details-section section.animate-in:nth-child(2) { animation-delay: 0.2s; }
+#details-section section.animate-in:nth-child(3) { animation-delay: 0.3s; }
+#details-section section.animate-in:nth-child(4) { animation-delay: 0.4s; }
+#details-section section.animate-in:nth-child(5) { animation-delay: 0.5s; }
+#details-section section.animate-in:nth-child(6) { animation-delay: 0.6s; }
+#details-section section.animate-in:nth-child(7) { animation-delay: 0.7s; }
+#details-section section.animate-in:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes flipIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) rotateX(15deg);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(50px) rotateX(45deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+    opacity: 0;
+    transform: translateX(-30px);
+    will-change: transform, opacity;
+    scroll-margin-top: calc(var(--header-height) + 1rem); /* Ensure headings are visible */
+}
+
+h2.animate-in {
+    animation: slideInLeft 1.2s ease forwards;
+}
+
+#details-section h2.animate-in:nth-of-type(1) { animation-delay: 0.2s; }
+#details-section h2.animate-in:nth-of-type(2) { animation-delay: 0.3s; }
+#details-section h2.animate-in:nth-of-type(3) { animation-delay: 0.4s; }
+#details-section h2.animate-in:nth-of-type(4) { animation-delay: 0.5s; }
+#details-section h2.animate-in:nth-of-type(5) { animation-delay: 0.6s; }
+#details-section h2.animate-in:nth-of-type(6) { animation-delay: 0.7s; }
+#details-section h2.animate-in:nth-of-type(7) { animation-delay: 0.8s; }
+#details-section h2.animate-in:nth-of-type(8) { animation-delay: 0.9s; }
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#details-section li {
+    margin-bottom: 0.6rem;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+}
+
+#details-section li.animate-in {
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+#details-section li.animate-in:nth-child(1) { animation-delay: 0.1s; }
+#details-section li.animate-in:nth-child(2) { animation-delay: 0.15s; }
+#details-section li.animate-in:nth-child(3) { animation-delay: 0.2s; }
+#details-section li.animate-in:nth-child(4) { animation-delay: 0.25s; }
+#details-section li.animate-in:nth-child(5) { animation-delay: 0.3s; }
+#details-section li.animate-in:nth-child(6) { animation-delay: 0.35s; }
+#details-section li.animate-in:nth-child(7) { animation-delay: 0.4s; }
+#details-section li.animate-in:nth-child(8) { animation-delay: 0.45s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Simple fade-in animation for non-About sections */
+@keyframes simpleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.simple-fade-in {
+    animation: simpleFadeIn 1.2s ease-out forwards !important;
+    transform: translateY(0) !important;
+}
+
+#details-section li:hover {
+    color: var(--text-light);
+    transform: translateX(5px);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--header-bg);
+    margin-top: 3rem;
+}
+
+#profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#profile-image {
+    width: 268px;
+    height: 268px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top; /* Center horizontally, focus on top area for face */
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: center center;
+    will-change: transform, opacity;
+    transition: transform 0.3s ease;
+}
+
+#profile-image.animate-in {
+    animation: centerScaleIn 1.0s linear forwards;
+    animation-delay: 0.3s;
+}
+
+#profile-image:hover {
+    transform: scale(1.05);
+}
+
+@keyframes centerScaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#profile-info {
+    width: 128%;
+    max-width: 1000px; /* Increased width for about text */
+    text-align: left;
+}
+
+#profile-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 0rem 0; /* Reduced spacing between name and title */
+    color: var(--text-color);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+#profile-name.animate-in {
+    animation: slideInUp 1.0s ease forwards;
+    animation-delay: 0.4s;
+}
+
+#profile-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 0 1rem 0; /* Reduced spacing between title and intro text */
+    color: var(--text-light);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+#profile-title.animate-in {
+    animation: slideInUp 1.5s ease forwards;
+    animation-delay: 0.5s;
+}
+
+#about-text {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+    text-align: left;
+    line-height: 1.6;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    max-width: 100%; /* Allow full width usage */
+    font-size: 1rem; /* Make font slightly smaller */
+}
+
+#about-text.animate-in {
+    animation: slideInUp 1.5s ease forwards;
+    animation-delay: 0.6s;
+}
+
+/* Styling for bullet points in about text */
+#about-text ul {
+    margin: 0rem 0; /* Reduced spacing between bullet groups */
+    padding-left: 0;
+    list-style: none;
+}
+
+#about-text ul li {
+    margin-bottom: 0rem; /* Reduced spacing between bullet points */
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.3;
+}
+
+#about-text ul li::before {
+    content: "•";
+    color: var(--text-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    line-height: 1;
+}
+
+/* Nested bullet points (sub-bullets) */
+#about-text ul ul {
+    margin: 0.1rem 0 0 0;
+    padding-left: 0;
+}
+
+#about-text ul ul li {
+    margin-bottom: 0.1rem;
+    padding-left: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+#about-text ul ul li::before {
+    content: "◦";
+    color: var(--text-light);
+    font-weight: normal;
+    top: 0.5em;
+    line-height: 1;
+}
+
+/* Reduce spacing from <br> tags in about text */
+#about-text br {
+    line-height: 0.5;
+}
+
+
+
+#profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0rem;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+#profile-links.animate-in {
+    animation: slideInUp 1.0s ease forwards;
+    animation-delay: 0.7s;
+}
+
+#profile-links a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#profile-links a:hover {
+    color: var(--text-light);
+}
+
+#education-section, #research-section {
+    margin-top: 8rem;
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+#education-section {
+    margin-top: 8rem;
+}
+
+#research-section {
+    margin-top: 2rem;
+}
+
+#education-section.animate-in {
+    animation: slideInUp 1.5s ease forwards;
+    animation-delay: 0.8s;
+}
+
+#research-section.animate-in {
+    animation: slideInUp 1.5s ease forwards;
+    animation-delay: 1.0s;
+}
+
+#education-section h4, #research-section h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem 0;
+    color: var(--text-color);
+}
+
+#education-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#education-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    gap: 2rem;
+}
+
+#education-list .year {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: 500;
+    color: var(--text-color);
+    padding-top: 0;
+}
+
+#education-list .details {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+}
+
+#education-list .details strong {
+    display: inline;
+    font-weight: 600;
+}
+
+#research-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#research-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    gap: 2rem;
+}
+
+#research-list .category {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: 400;
+    color: var(--text-color);
+    padding-top: 0;
+}
+
+#research-list .content {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+}
+
+#honors-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#honors-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    gap: 2rem;
+}
+
+#honors-list .year {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: 500;
+    color: var(--text-color);
+    padding-top: 0;
+}
+
+#honors-list .amount {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+#honors-list .details {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+}
+
+#honors-list .details strong {
+    display: inline;
+    font-weight: 600;
+}
+
+#teaching-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+}
+
+#teaching-section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem 0;
+    color: var(--text-color);
+}
+
+/* Teaching section (now standalone) */
+#teaching {
+    margin-top: 2rem;
+}
+
+#teaching h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem 0;
+    color: var(--text-color);
+}
+
+#teaching-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#teaching-list li {
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.teaching-category {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0.01rem;
+    margin-top: 1.5rem;
+}
+
+.teaching-course {
+    display: flex;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.course-terms {
+    width: 140px;
+    flex-shrink: 0;
+    font-weight: 500;
+    color: var(--text-color);
+    padding-top: 0;
+    line-height: 1.4;
+    white-space: pre-line;
+}
+
+.term-year {
+    display: inline-block;
+    width: 2.3rem;
+    text-align: left;
+}
+
+.course-details {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.course-details strong {
+    font-weight: 600;
+}
+
+.course-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+@keyframes slideInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Job Market indicator styles */
+.job-market-separator {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
+.job-market-text {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-10px);
+    position: relative;
+    transition: none; /* Prevent any unwanted transitions */
+}
+
+/* Add a class that triggers the animation */
+.job-market-text.in-view {
+    animation: jobMarketFadeIn 1s ease forwards 0.5s; /* Reduced delay to 0.5s since user is already there */
+}
+
+@keyframes jobMarketFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#services-content {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+}
+
+#services-content.animate-in {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+}
+
+#contact-info {
+    padding: 1.5rem;
+    background-color: var(--hover-bg);
+    border-radius: 8px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.9);
+    will-change: transform, opacity;
+}
+
+#contact-info.animate-in {
+    animation: scaleIn 0.6s ease forwards;
+    animation-delay: 0.8s;
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Center the about section heading specifically */
+#about h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Award icon styling */
+.award-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-right: 0.15rem;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+/* Working papers links styling */
+#papers-list a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+}
+
+#papers-list a:hover {
+    color: var(--text-light);
+}
+
+/* Special styling for "Read More" links */
+#papers-list a[href*="ssrn.com"] {
+    font-size: 1.05em;
+}
+
+/* Talks section styling */
+#talks-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#talks-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    gap: 2rem;
+}
+
+#talks-list .year {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: 500;
+    color: var(--text-color);
+    padding-top: 0;
+}
+
+#talks-list .details {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+}
+
+#talks-list .details strong {
+    display: inline;
+    font-weight: 600;
+}
+
+/* Projects section styling */
+#projects {
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+#projects h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem 0;
+    color: var(--text-color);
+}
+
+#projects-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#projects-list li {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#projects-list a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+}
+
+#projects-list a:hover {
+    color: var(--text-light);
+}
+
+/* Industry Collaboration section styling */
+#collaboration-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+}
+
+#collaboration-section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem 0;
+    color: var(--text-color);
+}
+
+#collaboration-list a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+}
+
+#collaboration-list a:hover {
+    color: var(--text-light);
+}
+
+/* Professional Experience section styling */
+#experience-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+}
+
+#experience-section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem 0;
+    color: var(--text-color);
+}
+
+#experience-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#experience-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    gap: 2rem;
+}
+
+#experience-list .year {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: 500;
+    color: var(--text-color);
+    padding-top: 0;
+}
+
+#experience-list .details {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+}
+
+#experience-list .details strong {
+    display: inline;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .award-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: 0.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px; /* Smaller header on mobile */
+    }
+    
+    #profile-container {
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #profile-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    #profile-info {
+        text-align: center;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    #profile-image:hover {
+        transform: scale(1.03); /* Subtle hover effect on mobile */
+    }
+
+    #profile-info {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    #profile-name {
+        font-size: 1.5rem;
+    }
+    
+    #profile-title {
+        font-size: 1rem;
+    }
+
+    /* Responsive job market text */
+    .job-market-text {
+        display: block;
+        margin-top: 0.3rem;
+    }
+
+    .job-market-separator {
+        display: none;
+    }
+    
+    #profile-links {
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    #profile-links a {
+        font-size: 0.9rem;
+    }
+    
+    #education-section {
+        margin-top: 4rem;
+    }
+    
+    #research-section {
+        margin-top: 1.5rem;
+    }
+    
+    #education-section h4, #research-section h4 {
+        font-size: 1.2rem;
+        margin: 0 0 0.6rem 0;
+    }
+    
+    #education-list li {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    #education-list .year {
+        width: 100px;
+        font-size: 0.85rem;
+    }
+    
+    #research-list li {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    #research-list .category {
+        width: 100px;
+        font-size: 0.85rem;
+    }
+    
+    #honors-list li {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        flex-direction: column;
+    }
+    
+    #honors-list .year {
+        width: auto;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.85rem;
+    }
+    
+    #teaching-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+    
+    #teaching-section h3 {
+        font-size: 1.2rem;
+        margin: 0 0 0.6rem 0;
+    }
+    
+    #teaching {
+        margin-top: 1.5rem;
+    }
+    
+    #teaching h2 {
+        font-size: 1.2rem;
+        margin: 0 0 0.6rem 0;
+    }
+    
+    #teaching-list li {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .teaching-category {
+        font-size: 0.9rem;
+        margin-top: 1.2rem;
+    }
+    
+    .teaching-course {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .course-terms {
+        width: auto;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    .course-details {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    
+    .course-note {
+        font-size: 0.85rem;
+    }
+    
+    #talks-list li {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        flex-direction: column;
+    }
+    
+    #talks-list .year {
+        width: auto;
+        text-align: left;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+        #projects {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    #projects h2 {
+        font-size: 1.2rem;
+        margin: 0 0 0.6rem 0;
+    }
+
+    #collaboration-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    #collaboration-section h3 {
+        font-size: 1.2rem;
+        margin: 0 0 0.6rem 0;
+    }
+    
+    #projects-list li {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    #experience-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+    
+    #experience-section h3 {
+        font-size: 1.2rem;
+        margin: 0 0 0.6rem 0;
+    }
+    
+    #experience-list li {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        flex-direction: column;
+    }
+    
+    #experience-list .year {
+        width: auto;
+        text-align: left;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    .theme-toggle {
+        width: 30px;
+        height: 30px;
+        font-size: 1.1rem;
+        top: 5px;
+        right: 5px;
+        z-index: 1002; /* Ensure it's above header which is z-index 1000 */
+    }
+    
+    main {
+        padding: 2rem 1rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    nav ul {
+        flex-wrap: nowrap; /* Keep items on same line */
+        padding: 0.5rem 0;
+        justify-content: space-evenly; /* Distribute items evenly */
+    }
+    
+    nav ul li {
+        margin: 0 0.2rem; /* Reduce margins to fit more items */
+    }
+    
+    nav ul li a {
+        font-size: 0.85rem; /* Smaller font to fit better */
+        font-weight: 500;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}

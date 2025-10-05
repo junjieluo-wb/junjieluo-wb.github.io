@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Red background (traditional Chinese seal color) -->
+  <rect width="512" height="512" fill="#CC2936" rx="8"/>
+
+  <!-- Border (slightly darker) -->
+  <rect x="20" y="20" width="472" height="472" fill="none" stroke="#8B1E28" stroke-width="8" rx="4"/>
+
+  <!-- J text in white, bold, centered -->
+  <text x="256" y="400"
+        font-family="'Noto Serif', Georgia, serif"
+        font-size="420"
+        font-weight="900"
+        fill="#FFFFFF"
+        text-anchor="middle">J</text>
+</svg>
