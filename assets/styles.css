@@ -745,7 +745,7 @@ ul {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.3s ease;
-    will-change: transform, opacity;
+    /* no will-change here: one compositing layer per item (60+) left some items unpainted in Chrome (261012) */
 }
 
 #details-section li.animate-in {
@@ -1672,4 +1672,43 @@ footer {
         height: 40px;
         font-size: 1.2rem;
     }
+}
+/* paper titles link to the paper (DOI or arXiv) */
+.paper-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.paper-title a:hover {
+    text-decoration: underline;
+}
+
+/* Academic Service: laid out like Honors and Awards (one line per role) */
+#service-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#service-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    gap: 2rem;
+}
+
+#service-list .year {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: 500;
+    color: var(--text-color);
+    padding-top: 0;
+}
+
+#service-list .details {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
 }
