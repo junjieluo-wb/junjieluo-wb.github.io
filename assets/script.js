@@ -880,6 +880,10 @@ if (history.scrollRestoration) {
   
     // More button will be handled by SmoothScrollHandler
   
+    // Footer year: set here, not after personal_info.json loads (that file is not published)
+    document.getElementById("footer-text").textContent =
+      `© ${new Date().getFullYear()} Junjie Luo. All rights reserved.`;
+
     // Load personal info
     fetch("personal_info.json")
       .then((response) => response.json())
